@@ -11,7 +11,7 @@ import Aux from "../../hoc/_Aux";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     firebase.auth().signOut();
@@ -36,21 +36,17 @@ const Login = () => {
                 });
             })
             .catch((error) => {
+                setMessage(error.message);
                 console.log("Error getting documents: ", error);
-            });
-
-          
-
-        //   let usersDBQuery = firebase.firestore().collection('users').where('email', '==', email)
-        //   usersDBQuery.get()
-        //     .then(snapshot => {
-        //       if (snapshot.exists) {
-               
-        //       }
-        //     })
+            }); 
          }
       })
       .catch((err) => {
+        if(err.code === 'auth/user-not-found') {
+          setMessage('No record found, Kindly Sign up');
+        } else {
+          setMessage(err.message);
+        }
         console.error(err);
       });
   };
@@ -88,7 +84,9 @@ const Login = () => {
               <div className="input-group mb-4">
                 <input type="password" className="form-control" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
-
+              <div className="form-group text-center">
+              <label className="text-danger">{message}</label>
+             </div>
               <button className="btn btn-primary shadow-2 mb-4" onClick={login}>Login</button>
               {/* <p className="mb-2 text-muted">Forgot password? <NavLink to="/auth/reset-password-1">Reset</NavLink></p> */}
               <p className="mb-0 text-muted">Don’t have an account? <NavLink to="/auth/register">Signup</NavLink></p>

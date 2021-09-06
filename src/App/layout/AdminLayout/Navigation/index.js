@@ -110,28 +110,28 @@ class Navigation extends Component {
                 <NavLogo collapseMenu={this.props.collapseMenu} windowWidth={this.props.windowWidth} onToggleNavigation={this.props.onToggleNavigation} />
                 {UserService.getCurrentRole() == "Admin" && (
                     <NavContent navigation={navigation.adminMenuItems} />
-                )};
+                )}
                 {UserService.getCurrentRole() == "User" &&(
                     <NavContent navigation={navigation.items} />
-                )};
+                )}
             </div>
-        );
+        )
         if (this.props.windowWidth < 992) {
             navContent = (
                 <OutsideClick>
                     <div className="navbar-wrapper">
                         <NavLogo collapseMenu={this.props.collapseMenu} windowWidth={this.props.windowWidth} onToggleNavigation={this.props.onToggleNavigation} />
 
-                        {UserService.getCurrentRole() == "Admin" (
+                        {UserService.getCurrentRole() == "Admin" && (
                         <NavContent navigation={navigation.adminMenuItems} />
-                        )};
-                        {UserService.getCurrentRole() == "User" (
+                        )}
+                        {UserService.getCurrentRole() == "User" && (
                             <NavContent navigation={navigation.items} />
-                        )};
+                        )}
                     
                     </div>
                 </OutsideClick>
-            );
+            )
         }
 
         return (

@@ -9,14 +9,17 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const ref = firebase.firestore().collection('users');
-
+  
   const register = () => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((currentUser) => {
         addOrUpdate(currentUser.user);
+        setSuccessMessage("Successfully Signed up, kindly please login");
+        setMessage('');
         resetInput();
       })
       .catch((err) => {
@@ -45,7 +48,7 @@ const Register = () => {
     const className = '';
     const comments = '';
     const role = 'User';
-    const email = email.toLowerCase();
+    const email = currentUser.email && currentUser.email.toLowerCase();
     const pageNewItem = {
       name,
       email,
@@ -60,7 +63,7 @@ const Register = () => {
       lastUpdate: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
-    let usersDBQuery = ref.where('email', '==', email)
+    let usersDBQuery = ref.where('email', '==', currentUser.email)
     usersDBQuery.get()
       .then(snapshot => {
         if (!snapshot.exists) {
@@ -109,6 +112,7 @@ const Register = () => {
             </div>
             <div className="form-group text-center">
               <label className="text-danger">{message}</label>
+              <label className="text-success">{successMessage}</label>
             </div>
             <button className="btn btn-primary shadow-2 mb-4" onClick={register}>Sign up</button>
             <p className="mb-0 text-muted">Allready have an account? <NavLink to="/login">Login</NavLink></p>

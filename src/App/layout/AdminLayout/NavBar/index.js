@@ -9,6 +9,7 @@ import DEMO from "../../../../store/constant";
 import * as actionTypes from "../../../../store/actions";
 
 class NavBar extends Component {
+    
     render() {
         //const  currentUser  = useContext(AuthContext);
         let headerClass = ['navbar', 'pcoded-header', 'navbar-expand-lg', this.props.headerBackColor];
@@ -20,6 +21,8 @@ class NavBar extends Component {
         if (this.props.collapseMenu) {
             toggleClass = [...toggleClass, 'on'];
         }
+
+        
 
         return (
             <Aux>
@@ -33,7 +36,8 @@ class NavBar extends Component {
                             <span className="b-title">Best School</span>
                         </a>
                     </div>
-                    <a className="mobile-menu" id="mobile-header" href={DEMO.BLANK_LINK}><i className="feather icon-more-horizontal"/></a>
+                    <a className="mobile-menu" id="mobile-header" href={DEMO.BLANK_LINK}>
+                        <i className="feather icon-more-horizontal"/></a>
                     <div className="collapse navbar-collapse">
                         <NavLeft/>
                         <NavRight rtlLayout={this.props.rtlLayout} />

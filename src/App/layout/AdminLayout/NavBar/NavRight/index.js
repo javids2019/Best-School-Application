@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Dropdown} from 'react-bootstrap';
-
+import { NavLink, Redirect } from 'react-router-dom';
 import ChatList from './ChatList';
 import Aux from "../../../../../hoc/_Aux";
 import DEMO from "../../../../../store/constant";
@@ -15,9 +15,26 @@ class NavRight extends Component {
     
     state = {
         listOpen: false,
-       
+        redirect: false,
+        path: ''
     };
-   
+    redirectPage(path) {
+        return <NavLink to={path}></NavLink>;
+    }
+ 
+    setRedirect = (path) => {
+        // this.setState(
+        //     path: path
+        // );
+        // this.setState({
+        //     redirect: true
+        // });
+    }
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.path} />
+        }
+    }
      
     render() {
        
@@ -98,8 +115,13 @@ class NavRight extends Component {
                                     </a>
                                 </div>
                                 <ul className="pro-body">
-                                    <li><a href="/user/profile" className="dropdown-item"><i className="feather icon-settings"/> Settings</a></li>
-                                    <li><a href="/user/profile" className="dropdown-item"><i className="feather icon-user"/> Profile</a></li>
+                                {this.renderRedirect()}
+                                    <li><a href={DEMO.BLANK_LINK} onClick={this.setRedirect('/user/profile')} className="dropdown-item">
+                                        <i className="feather icon-settings"/>  Settings </a>
+                                    </li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item">
+                                        <i className="feather icon-user"/> Profile</a>
+                                        </li>
                                     <li><a href="/messages" className="dropdown-item"><i className="feather icon-mail"/> My Messages</a></li>
                                     <li><a href="/login" className="dropdown-item"><i className="feather icon-lock"/> Log Out </a></li>
                                 </ul>

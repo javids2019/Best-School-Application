@@ -1,3 +1,4 @@
+import { firestore } from "firebase";
 import React, { useState, useEffect, Fragment } from "react";
 import { Row, Col, Card, Table } from 'react-bootstrap';
 import firebase from "../../firebase";
@@ -7,7 +8,7 @@ function LoginHistory() {
     const ref = firebase.firestore().collection('loginhistory');
    
     function getAllPageData() {
-        ref.onSnapshot((querySnapshot) => {
+        ref.orderBy("lastUpdate", "desc").onSnapshot((querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
                 items.push(doc.data());
@@ -19,7 +20,15 @@ function LoginHistory() {
     useEffect(() => { 
         getAllPageData();
     }, []);
- 
+
+    const options = {
+        year: "2-digit",
+        month:"2-digit",
+        day:"2-digit",
+        hour:  "2-digit",
+        minute: "2-digit"
+        }
+   
     return (
         <Fragment> 
             <Row>
@@ -45,7 +54,7 @@ function LoginHistory() {
                                             <td>{pageItem.name}</td>
                                             <td>{pageItem.email}</td>
                                             <td>{pageItem.type}</td>
-                                            <td>{(pageItem.lastUpdate.toDate()).toDateString('DD-MMM-yyyy')}</td>  
+                                            <td>{(pageItem.lastUpdate.toDate()).toLocaleTimeString("en-US",options)}</td>  
                                         </tr>
                                     ))}
                                 </tbody>

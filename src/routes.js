@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import Parent from './MyApp/questions/Parent'; 
 
 window.jQuery = $;
 window.$ = $;
@@ -40,7 +41,23 @@ const Messages = React.lazy(() => import('./MyApp/users/messages'));
 const Quiz = React.lazy(() => import('./MyApp/users/quiz'));
 const ContactUs = React.lazy(() => import('./MyApp/users/contactus'));
 const Profile = React.lazy(() => import('./MyApp/users/profile'));
+// Students
+const Students = React.lazy(() => import('./MyApp/students/students'));
+const ClassNames = React.lazy(() => import('./MyApp/students/classNames'));
+const Sections = React.lazy(() => import('./MyApp/students/sections'));
+const StudentHouse = React.lazy(() => import('./MyApp/students/studentHouse'));
+const Category = React.lazy(() => import('./MyApp/students/category'));
 
+const Hostels = React.lazy(() => import('./MyApp/students/hostel/hostel'));
+const RoomeDetails = React.lazy(() => import('./MyApp/students/hostel/roomes'));
+const Transport = React.lazy(() => import('./MyApp/students/transport/transport'));
+const TransportRoutes = React.lazy(() => import('./MyApp/students/transport/routes'));
+const Visitors = React.lazy(() => import('./MyApp/frontOffice/visitors'));
+const PhoneCallLog = React.lazy(() => import('./MyApp/frontOffice/phoneCallLog'));
+const PostalReceive = React.lazy(() => import('./MyApp/frontOffice/postalReceive'));
+ const PostalSent = React.lazy(() => import('./MyApp/frontOffice/postalSent'));
+ const AdmissionEnquiry = React.lazy(() => import('./MyApp/frontOffice/admissionEnquiry'));
+ const Complain = React.lazy(() => import('./MyApp/frontOffice/complain'));
 const routes = [
     // Admin
     { path: '/dashboard', exact: true, name: 'Default', component: DashboardDefault },
@@ -53,10 +70,26 @@ const routes = [
     { path: '/level', exact: true, name: 'Basic Button', component: Level },
     { path: '/questions', exact: true, name: 'Basic Button', component: Questions },
     { path: '/quiz', exact: true, name: 'Basic Button', component: Quiz },
-    { path: '/CheckAndUncheck', exact: true, name: 'Basic Button', component: CheckAndUncheck },
+    { path: '/Parent', exact: true, name: 'Basic Button', component: Parent },
     { path: '/contactus', exact: true, name: 'Basic Button', component: ContactUsAdmin },
     { path: '/loginhistory', exact: true, name: 'Basic Button', component: LoginHistory },
     { path: '/quizreport', exact: true, name: 'Basic Button', component: QuizReport },
+    // Students
+    { path: '/students', exact: true, name: 'Basic Button', component: Students },
+    { path: '/classnames', exact: true, name: 'Basic Button', component: ClassNames },
+    { path: '/sections', exact: true, name: 'Basic Button', component: Sections },
+    { path: '/studenthouse', exact: true, name: 'Basic Button', component: StudentHouse },
+    { path: '/category', exact: true, name: 'Basic Button', component: Category },
+    { path: '/hostel', exact: true, name: 'Basic Button', component: Hostels },
+    { path: '/roomdetails', exact: true, name: 'Basic Button', component: RoomeDetails },
+    { path: '/transport', exact: true, name: 'Basic Button', component: Transport },
+    { path: '/admissionenquiry', exact: true, name: 'Basic Button', component: AdmissionEnquiry },
+    //front office 
+    { path: '/visitors', exact: true, name: 'Basic Button', component: Visitors },
+    { path: '/phonecalllog', exact: true, name: 'Basic Button', component: PhoneCallLog },
+    { path: '/postalreceive', exact: true, name: 'Basic Button', component: PostalReceive },
+    { path: '/postalsent', exact: true, name: 'Basic Button', component: PostalSent },
+    { path: '/complaint', exact: true, name: 'Basic Button', component: Complain },
     // User
     { path: '/user/userdashboard', exact: true, name: 'Basic Button', component: Dashboard },
     { path: '/user/profile', exact: true, name: 'Basic Button', component: Profile },   

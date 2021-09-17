@@ -81,7 +81,12 @@
 /* input group End */
 /**====== Form Componant css end ======**/
 select.form-control:not([size]):not([multiple]) {
-    height: calc(2.55rem + 2px);
+    height: calc(2.55rem + 2px);  
+}
+select.form-control-sm:not([size]):not([multiple]) {
+    height: calc(1.8125rem + 2px);
+    font-size: .875rem;
+    padding: 2px 2px !important; 
 }
 .input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]),
 .input-group-lg > .input-group-append > select.input-group-text:not([size]):not([multiple]),

@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import firebase from "../../firebase";
 import './../../assets/scss/style.scss';
-import { NavLink, } from 'react-router-dom';
-import { getAuth, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
-import { AuthContext } from '../auth/auth';
+import { NavLink,Link, Redirect } from 'react-router-dom';
 import { UserService } from '../auth/userService';
-import { useHistory } from 'react-router';
-import Aux from "../../hoc/_Aux";
+ import Aux from "../../hoc/_Aux";
+ import { createHashHistory } from "history";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,9 +28,19 @@ const Login = () => {
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => { 
-                    let userData = doc.data()
+                    let userData = doc.data();
+                    
                     UserService.login(userData.name, userData.email.toLowerCase(), userData.role);
-                    window.location.href = '/user/userdashboard';
+                    const history = createHashHistory();
+                    history.go("/");
+                    //this.props.history.push('/user/userdashboard');
+                    //return (<Link to="/user/userdashboard">Homepage</Link>);
+                    window.location = '/user/userdashboard';
+                   // return  (<NavLink to="/user/userdashboard"></NavLink>);
+                    //_staticRouter.useHistory = '/user/userdashboard';
+                    //const history = Route();
+                    //Route.push('/user/userdashboard');
+                    //window.location.href = '/user/userdashboard';
                 });
             })
             .catch((error) => {

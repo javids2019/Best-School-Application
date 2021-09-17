@@ -36,6 +36,57 @@ match /quizreport/{id} {
 allow read, write;
 }
 
+
+match /classnames/{id} {
+allow read, write;
+}
+match /sections/{id} {
+allow read, write;
+}
+match /category/{id} {
+allow read, write;
+}
+match /students/{id} {
+allow read, write;
+}
+match /hostel/{id} {
+allow read, write;
+}
+match /roomdetails/{id} {
+allow read, write;
+}
+
+match /transport/{id} {
+allow read, write;
+}
+match /transportroute/{id} {
+allow read, write;
+}
+match /studenthouse/{id} {
+allow read, write;
+}
+match /category/{id} {
+allow read, write;
+}
+match /visitors/{id} {
+allow read, write;
+}
+match /phonecalllog/{id} {
+allow read, write;
+}
+match /postalreceive/{id} {
+allow read, write;
+}
+match /postaldispatch/{id} {
+allow read, write;
+}
+match /admissionenquiry/{id} {
+allow read, write;
+}
+match /complaint/{id} {
+allow read, write;
+}
+
 }
 }
 

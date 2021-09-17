@@ -78,95 +78,214 @@ export default {
         },
         {
             id: 'ui-forms',
-            title: 'Question Admin',
+            title: 'Admin',
             type: 'group',
             icon: 'icon-group',
             children: [
                 {
-                    id: 'questiontype',
-                    title: 'Question Type',
-                    type: 'item',
-                    url: '/questiontype',
-                    icon: 'feather icon-file-text'
+                    id: 'basic',
+                    title: 'Question Admin',
+                    type: 'collapse',
+                    icon: 'feather icon-box',
+                    children: [
+                        {
+                            id: 'questiontype',
+                            title: 'Question Type',
+                            type: 'item',
+                            url: '/questiontype',
+                        },
+                        {
+                            id: 'assessmenttype',
+                            title: 'Assessment Type',
+                            type: 'item',
+                            url: '/assessmenttype',
+                        },
+                        {
+                            id: 'program',
+                            title: 'Program',
+                            type: 'item',
+                            url: '/program',
+                        },
+                        {
+                            id: 'module',
+                            title: 'Module',
+                            type: 'item',
+                            url: '/module',
+                        },
+                        {
+                            id: 'level',
+                            title: 'Level',
+                            type: 'item',
+                            url: '/level',
+                        },
+                        {
+                            id: 'questions',
+                            title: 'Question',
+                            type: 'item',
+                            url: '/questions',
+                        },
+                        {
+                            id: 'questions',
+                            title: 'Question Report',
+                            type: 'item',
+                            url: '/questionReport',
+                        }, 
+                        {
+                            id: 'CheckAndUncheck',
+                            title: 'parent',
+                            type: 'item',
+                            url: '/Parent',
+                        },
+                        {
+                            id: 'users',
+                            title: 'Users',
+                            type: 'item',
+                            url: '/users',
+                        },
+                        {
+                            id: 'loginhistory',
+                            title: 'Login History',
+                            type: 'item',
+                            url: '/loginhistory',
+                        },
+                        {
+                            id: 'quizreport',
+                            title: 'Quiz Report',
+                            type: 'item',
+                            url: '/quizreport',
+                        },
+                        
+                    ]
                 },
                 {
-                    id: 'assessmenttype',
-                    title: 'Assessment Type',
-                    type: 'item',
-                    url: '/assessmenttype',
-                    icon: 'feather icon-server'
+                    id: 'frontOfficeGroup',
+                    title: 'Front Office',
+                    type: 'collapse',
+                    icon: 'feather icon-box',
+                    children: [
+                        {
+                            id: 'admissionEnquiry',
+                            title: 'Admission Enquiry',
+                            type: 'item',
+                            url: '/admissionEnquiry',
+                        },
+                        {
+                            id: 'visitors',
+                            title: 'Visitor Book',
+                            type: 'item',
+                            url: '/visitors',
+                        },
+                        {
+                            id: 'phonecalllog',
+                            title: 'Phone Call Log',
+                            type: 'item',
+                            url: '/phonecalllog',
+                        },
+                        {
+                            id: 'postalreceive',
+                            title: 'Postal Receive',
+                            type: 'item',
+                            url: '/postalreceive',
+                        },
+                        {
+                            id: 'postalsent',
+                            title: 'Postal Dispatch',
+                            type: 'item',
+                            url: '/postalsent',
+                        },
+                        {
+                            id: 'complaint',
+                            title: 'Register Complaint',
+                            type: 'item',
+                            url: '/complaint',
+                        }  
+                    ]
                 },
                 {
-                    id: 'program',
-                    title: 'Program',
-                    type: 'item',
-                    url: '/program',
-                    icon: 'feather icon-server'
+                    id: 'studentInformation',
+                    title: 'Student Information',
+                    type: 'collapse',
+                    icon: 'feather icon-box',
+                    children: [
+                        {
+                            id: 'studentDetails',
+                            title: 'Student Details',
+                            type: 'item',
+                            url: '/students',
+                        },
+                        {
+                            id: 'studentCategories',
+                            title: 'Student Categories',
+                            type: 'item',
+                            url: '/category',
+                        },
+                        {
+                            id: 'studentHouse',
+                            title: 'Student House',
+                            type: 'item',
+                            url: '/studenthouse',
+                        },
+                        {
+                            id: 'bulkdelete',
+                            title: 'Bulk delete',
+                            type: 'item',
+                            url: '/module',
+                        },
+                        {
+                            id: 'Class',
+                            title: 'Student Class',
+                            type: 'item',
+                            url: '/classnames',
+                        },
+                        {
+                            id: 'section',
+                            title: 'Student Section',
+                            type: 'item',
+                            url: '/sections',
+                        }
+                         
+                    ]
                 },
                 {
-                    id: 'module',
-                    title: 'Module',
-                    type: 'item',
-                    url: '/module',
-                    icon: 'feather icon-server'
+                    id: 'hotelDetails',
+                    title: 'Hostel Information',
+                    type: 'collapse',
+                    icon: 'feather icon-box',
+                    children: [
+                        {
+                            id: 'studentHostel',
+                            title: 'Hostel',
+                            type: 'item',
+                            url: '/hostel',
+                        },
+                        {
+                            id: 'studentRoomes',
+                            title: 'Hostel Rooms',
+                            type: 'item',
+                            url: '/roomdetails',
+                        }
+                    ]
                 },
                 {
-                    id: 'level',
-                    title: 'Level',
-                    type: 'item',
-                    url: '/level',
-                    icon: 'feather icon-server'
-                },
-                {
-                    id: 'questions',
-                    title: 'Question',
-                    type: 'item',
-                    url: '/questions',
-                    icon: 'feather icon-server'
-                },
-                {
-                    id: 'questions',
-                    title: 'Question Report',
-                    type: 'item',
-                    url: '/questionReport',
-                    icon: 'feather icon-server'
-                },
-                // {
-                //     id: 'questions',
-                //     title: 'Quiz',
-                //     type: 'item',
-                //     url: '/quiz',
-                //     icon: 'feather icon-server'
-                // }, 
-                {
-                    id: 'CheckAndUncheck',
-                    title: 'CheckAndUncheck',
-                    type: 'item',
-                    url: '/CheckAndUncheck',
-                    icon: 'feather icon-server'
-                },
-                {
-                    id: 'users',
-                    title: 'Users',
-                    type: 'item',
-                    url: '/users',
-                    icon: 'feather icon-server'
-                },
-                {
-                    id: 'loginhistory',
-                    title: 'Login History',
-                    type: 'item',
-                    url: '/loginhistory',
-                    icon: 'feather icon-server'
-                },
-                {
-                    id: 'quizreport',
-                    title: 'Quiz Report',
-                    type: 'item',
-                    url: '/quizreport',
-                    icon: 'feather icon-server'
-                },
-                 
+                    id: 'transportDetails',
+                    title: 'Transport Information',
+                    type: 'collapse',
+                    icon: 'feather icon-box',
+                    children: [
+                        {
+                            id: 'transport_Details',
+                            title: 'Transport Details',
+                            type: 'item',
+                            url: '/transport',
+                        },
+                        {
+                            id: 'transport_Route',
+                            title: 'Transport Route',
+                            type: 'item',
+                            url: '/transportroute',
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -259,9 +378,9 @@ export default {
 
                 {
                     id: 'sample-page',
-                    title: 'Sample Page',
+                    title: 'Collapse',
                     type: 'item',
-                    url: '/sample-page',
+                    url: '/basic/collapse',
                     classes: 'nav-item',
                     icon: 'feather icon-sidebar'
                 },
